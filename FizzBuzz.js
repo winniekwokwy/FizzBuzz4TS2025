@@ -4,10 +4,16 @@ To get the repository from GitHub:-
 2. Go to PowerShell
 3. Run git init
 4. Run git remote add origin [link to the respository on GitHub]
+
+To commit changes on command prompt:-
+git commit -m [comments]
 */
 
-// Part 1: print Hello World
-console.log('Hello world!');
+for (let i=1; i<=100; i++) {
+    if (i%3===0)
+        console.log('Fizz');
+    else
+        console.log(i);
+}
 
-// Part 2: 
 
