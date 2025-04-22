@@ -8,10 +8,17 @@ To get the repository from GitHub:-
 To commit changes on command prompt:-
 git commit -m [comments]
 */
-
+let msg;
 for (let i=1; i<=100; i++) {
-    if (i%3===0)
-        console.log('Fizz');
+    msg = '';
+    if (i%3===0) {
+        msg += 'Fizz';
+    }
+    if (i%5===0) {
+        msg += 'Buzz';
+    }
+    if (msg!=='')
+        console.log(msg);
     else
         console.log(i);
 }
