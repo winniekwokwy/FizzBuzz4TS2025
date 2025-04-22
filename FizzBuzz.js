@@ -14,31 +14,38 @@ git push
 git push origin main
 */
 function fizzBuzz(number){
-    let msg = '';
+    let msg = [];
     if (number%3===0) {
-        msg += 'Fizz';
+        msg.push('Fizz');
     }
     if (number%5===0) {
-        msg += 'Buzz';
+        msg.push('Buzz');
     }
     if (number%7===0){
-        msg += 'Bang';
+        msg.push('Bang');
     }
     if (number%11===0){
-        msg = 'Bong';
+        msg.length=0;
+        msg.push('Bong');
     }
     if (number%13===0){
-        if (msg.indexOf('B')!==-1){
-            msg.split().splice(msg.indexOf('B', 0, 'Fezz')).join();
+        let index = msg.findIndex((value, index)=>{
+            return value.charAt(0)==='B';
+        })
+        if (index!==-1){
+            msg.splice(index, 0, 'Fezz');
         }
         else {
-            msg += 'Fezz';
+            msg.push('Fezz');
         }
     }
-    return msg;
+    if (number%17===0){
+        msg.reverse();
+    }
+    return msg.join('');
 }
 
-for (let i=1; i<=100; i++) {
+for (let i=1; i<=300; i++) {
     let msg = fizzBuzz(i);
     if (msg!=='')
         console.log(msg);
