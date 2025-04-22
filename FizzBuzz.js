@@ -21,6 +21,20 @@ function fizzBuzz(number){
     if (number%5===0) {
         msg += 'Buzz';
     }
+    if (number%7===0){
+        msg += 'Bang';
+    }
+    if (number%11===0){
+        msg = 'Bong';
+    }
+    if (number%13===0){
+        if (msg.indexOf('B')!==-1){
+            msg.split().splice(msg.indexOf('B', 0, 'Fezz')).join();
+        }
+        else {
+            msg += 'Fezz';
+        }
+    }
     return msg;
 }
 
