@@ -13,60 +13,54 @@ git push -u origin main
 git push
 git push origin main
 */
-function fizzBuzz(number){
+function fizzBuzz(number, rule){
     let msg = [];
-    if (number%3===0) {
-        msg.push('Fizz');
-    }
-    if (number%5===0) {
-        msg.push('Buzz');
-    }
-    if (number%7===0){
-        msg.push('Bang');
-    }
-    if (number%11===0){
-        msg.length=0;
-        msg.push('Bong');
-    }
-    if (number%13===0){
-        let index = msg.findIndex((value, index)=>{
-            return value.charAt(0)==='B';
-        })
-        if (index!==-1){
-            msg.splice(index, 0, 'Fezz');
+    switch (rule){
+    case '3':
+        if (number%3===0) {
+            msg.push('Fizz');
         }
-        else {
-            msg.push('Fezz');
+        break;
+    case '5':
+        if (number%5===0) {
+            msg.push('Buzz');
         }
-    }
-    if (number%17===0){
-        msg.reverse();
+        break;
+    case '13':
+        if (number%13===0){
+            let index = msg.findIndex((value, index)=>{
+                return value.charAt(0)==='B';
+            })
+            if (index!==-1){
+                msg.splice(index, 0, 'Fezz');
+            }
+            else {
+                msg.push('Fezz');
+            }
+        }
+        break;
     }
     return msg.join('');
 }
 
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.question('Please input the maximum number: ', (answer) => {
-  if (!Number.isNaN(answer) && answer>0){
-    for (let i=1; i<=answer; i++) {
-        let msg = fizzBuzz(i);
-        if (msg!=='')
-            console.log(msg);
-        else
-            console.log(i);
+const prompt = require("prompt-sync")();
+const maxNumber = prompt("Please input the maximum number: ");
+if (!Number.isNaN(maxNumber) && maxNumber > 0) {
+    const rule = prompt("Please tell which rule you\'d like to apply (3, 5 or 13?): ");
+    if (!Number.isNaN(rule) && (rule==='3' || rule==='5' || rule==='13')){
+        for (let i=1; i<=maxNumber; i++) {
+            let msg = fizzBuzz(i, rule);
+            if (msg!=='')
+                console.log(msg);
+            else
+                console.log(i);
+        }
+    } else {
+        console.log('Invalid rule. Please try again.');
     }
 } else {
     console.log('Input error. Please try again.');
 }
-rl.close();
-});
-
 
 
 
