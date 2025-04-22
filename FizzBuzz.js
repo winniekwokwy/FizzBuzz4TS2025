@@ -45,12 +45,28 @@ function fizzBuzz(number){
     return msg.join('');
 }
 
-for (let i=1; i<=300; i++) {
-    let msg = fizzBuzz(i);
-    if (msg!=='')
-        console.log(msg);
-    else
-        console.log(i);
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Please input the maximum number: ', (answer) => {
+  if (!Number.isNaN(answer) && answer>0){
+    for (let i=1; i<=answer; i++) {
+        let msg = fizzBuzz(i);
+        if (msg!=='')
+            console.log(msg);
+        else
+            console.log(i);
+    }
+} else {
+    console.log('Input error. Please try again.');
 }
+rl.close();
+});
+
+
 
 
