@@ -7,16 +7,25 @@ To get the repository from GitHub:-
 
 To commit changes on command prompt:-
 git commit -m [comments]
+
+To push the code to GitHub:-
+git push -u origin main
+git push
+git push origin main
 */
-let msg;
-for (let i=1; i<=100; i++) {
-    msg = '';
-    if (i%3===0) {
+function fizzBuzz(number){
+    let msg = '';
+    if (number%3===0) {
         msg += 'Fizz';
     }
-    if (i%5===0) {
+    if (number%5===0) {
         msg += 'Buzz';
     }
+    return msg;
+}
+
+for (let i=1; i<=100; i++) {
+    let msg = fizzBuzz(i);
     if (msg!=='')
         console.log(msg);
     else
