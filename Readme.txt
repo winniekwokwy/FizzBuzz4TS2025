@@ -19,3 +19,18 @@ Learning goals are:-
 
 Bonus Goals
 Writing clean code
+
+Commands learned
+To get the repository from GitHub:-
+1. Go to the folder that you'd like to put the respository in it
+2. Go to PowerShell
+3. Run git init
+4. Run git remote add origin [link to the respository on GitHub]
+
+To commit changes on command prompt:-
+git commit -m [comments]
+
+To push the code to GitHub:-
+git push -u origin main
+git push
+git push origin main
